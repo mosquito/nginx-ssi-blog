@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<!--# block name="meta" --><!--# endblock --><!--# include virtual="/php/get_keywords.php?page=$arg_page" stub="meta" -->
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		<!--# block name="includes" --><!--# endblock --><!--# include file="/includes.html" stub="includes" -->
+		<link type="text/css" rel="stylesheet" href="/style/main.css"/>
+		<title>List of Pages (MyBlog)</title>
+		<script type="text/javascript" charset="utf-8">
+			window.onload = function(){
+				var els = document.getElementsByClassName("page_contain");
+				var elsArray = Array.prototype.slice.call(els, 0);
+				elsArray.forEach(function(el) {
+					el.innerHTML = Wiky.toHtml(el.textContent);
+					console.log(el.tagName);
+				});
+			}
+		</script>
+	</head>
+	<body>
+		<div id="main">
+			<header>
+				<div class="title">Непростой блог</div>
+				<div class="page_title">Список статей</div>
+				<div class="page_title"><!--# block name="title" --><!--# endblock --><!--# include file="$arg_page/title.html" stub="title" --></div>
+			</header>
+			<div class="pages">
+				<!--# block name="pages" --><!--# endblock --><!--# include virtual="/php/genmainpage.php" stub="pages" -->
+			</div>
+			<div id="footer"><!--# block name="footer" --><!--# endblock --><!--# include file="/pages/footer.html" stub="footer" --></div>
+		</div>
+	</body>
+</html>

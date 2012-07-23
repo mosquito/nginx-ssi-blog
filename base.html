@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+	<head>
+		<!--# block name="meta" --><!--# endblock --><!--# include virtual="/php/get_keywords.php?page=$arg_page" stub="meta" -->
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+		<!--# block name="includes" --><!--# endblock --><!--# include file="/includes.html" stub="includes" -->
+		<title><!--# block name="title_up" --><!--# endblock --><!--# include file="$arg_page/title.html" stub="title_up" --></title>
+		<script type="text/javascript" charset="utf-8">
+			window.onload = function(){
+				var wiki_img_max_size = 300;
+				var el = document.getElementById('content');
+				el.innerHTML = Wiky.toHtml(el.textContent);
+
+				var imgs = document.getElementsByClassName("wiki_img");
+				var imgArray = Array.prototype.slice.call(imgs, 0);
+				imgArray.forEach(function(img) {
+					var w = img.width;
+					var h = img.height;
+					if (h > w) {
+							var r = h/w;
+							img.style.height = wiki_img_max_size+'px' ;
+							img.style.width = (wiki_img_max_size / r)+'px' ;
+							console.log(el.tagName);
+						} else {
+							var r = w/h;
+							img.style.width = wiki_img_max_size+'px' ;
+							img.style.height = (wiki_img_max_size / r)+'px' ;
+							console.log(el.tagName);
+						}
+					})
+			}
+
+			SyntaxHighlighter.defaults['ruler'] = true;
+			SyntaxHighlighter.defaults['smart-tabs'] = false;
+			SyntaxHighlighter.defaults['toolbar'] = false;
+			SyntaxHighlighter.all();
+		</script>
+	</head>
+	<body>
+		<div id="main">
+			<header>
+				<div class="title">Непростой блог</div>
+				<div class="page_title"><!--# block name="title" --><!--# endblock --><!--# include file="$arg_page/title.html" stub="title" --></div>
+			</header>
+			<div id="menu">
+				<!--# block name="submenu" --><!--# endblock --><!--# include file="$arg_pages/menu.html" stub="submenu" -->
+				<br/>Другие статьи<br/>
+				<!--# block name="menu" --><!--# endblock --><!--# include virtual="/php/genmenu.php" stub="menu" -->
+			</div>
+			<div id="content">
+				<!--# block name="content" --><!--# endblock --><!--# include file="$arg_page/content.html" stub="content" -->
+			</div>
+
+			<div id="hypercomments_widget"></div>
+			<div id="footer"><!--# block name="footer" --><!--# endblock --><!--# include file="/pages/footer.html" stub="footer" --></div>
+		</div>
+	</body>
+</html>
+

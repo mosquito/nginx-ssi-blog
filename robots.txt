@@ -1,0 +1,10 @@
+# For domain: http://blog.mosquito.su
+
+# main section
+User-agent:*
+Crawl-delay: 3600
+# End of main section
+
+# Images section
+# End of images section
+

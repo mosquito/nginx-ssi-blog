@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="/sitemap.xsl"?>
+<!-- generator="mosquito-blog" -->
+<!-- sitemap-generator-url="http://www.arnebrachhold.de" sitemap-generator-version="3.2.7" -->
+<!-- generated-on="<!--# config timefmt="%d.%m.%Y %H:%M %P" --><!--# echo var="date_gmt" -->" -->
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+	<loc><!--# echo var="scheme" -->://<!--# echo var="host" -->/</loc>
+	<lastmod><!--# config timefmt="%Y-%m-%dT%H:%M:%S%z" --><!--# echo var="date_gmt" --></lastmod>
+	<changefreq>daily</changefreq>
+	<priority>1.0</priority>
+</url><!--# block name="urls" --><!--# endblock -->
+<!--# include virtual="/php/gen_sitemap.php" stub="urls" -->
+</urlset>
